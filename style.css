@@ -1,0 +1,16 @@
+#body{
+    background-color: rgb(139, 126, 126);
+}
+
+h1{
+    text-align: center;
+}
+
+
+.container{
+    text-align: center;
+    background-color: honeydew;
+    height: 400px;
+    width: 800px;
+    margin: 0 auto;
+}

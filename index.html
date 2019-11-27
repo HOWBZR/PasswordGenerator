@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+
+    <title>Password Generator</title>
+  </head>
+  <body id="body">
+    <div class="row">
+        
+    </div>
+    <header>
+      <h1>Password Generator</h1>
+    </header>
+    <div class="container rounded">
+        <div class="row">
+            <div class="col">
+                <h2>Generate a Password</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <textarea
+                readonly
+                id="password"
+                placeholder="Your Secure Password"
+                aria-label="Generated Password"
+                ></textarea>
+            </div>
+        </div>
+            <button id="generate" onclick="start()">Generate Password</button>
+            <button id="copy">
+            Copy to Clipboard
+            </button>
+
+        <!--Start Scripting-->
+        <script>
+            
+          let characterCount = prompt("How many character do you want your password to be?(please choose a number between 8 and 128)")
+            
+            
+            if (characterCount < 8 || characterCount > 128){
+                alert("please choose a number between 8 and 128");
+            }
+            else if(characterCount > 7 && characterCount < 129){
+                var characterSymbol = confirm("Do you want to include special characters?");
+            }
+            else{
+
+            }
+            
+            if(characterSymbol){
+                var characterNumber = confirm("Do you want to include numbers in your password?")
+            }
+            else if(!characterSymbol){
+                var characterCapital = confirm("")
+            }
+        
+            
+
+
+
+        </script>
+
+    </div>
+  </body>
+</html>
