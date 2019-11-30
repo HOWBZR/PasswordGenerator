@@ -73,3 +73,9 @@ input[type="checkbox"]{
     width: 100%;
     color: #fff;
 }
+#generate{
+    background-color: white;
+}
+#clipboard{
+    background-color:#3b3b98;
+}
