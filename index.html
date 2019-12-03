@@ -94,6 +94,7 @@
               symbol: getRandomSymbol
             };
 
+            // copy to clipboard function
             clipboardEl.addEventListener('click', () =>{
               const textarea = document.createElement('textarea');
               const password = resultEl.innerText;
@@ -110,13 +111,14 @@
                 alert("Password has been copied");
             });
 
+            //event listeners for checkboxes and value input
             generateEl.addEventListener("click", () => {
               const length = +lengthEl.value;
               const hasLower = lowercaseEl.checked;
               const hasUpper = uppercaseEl.checked;
               const hasNumber = numbersEl.checked;
               const hasSymbol = symbolsEl.checked;
-
+              //adding the generate password to the innertext element 
               resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
             });
 
@@ -149,7 +151,6 @@
             }
 
 
-
             // Generator Functions from charcode ASCII
             function getRandomLower(){
               return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
@@ -160,7 +161,7 @@
             }
 
             function getRandomNumber(){
-              return String.fromCharCode(Math.random(Math.floor() * 10) + 48);
+              return Math.floor(Math.random() * 10);
             }
             function getRandomSymbol(){
               const symbols = "!@#$%^&*()+=?><{}|~";
