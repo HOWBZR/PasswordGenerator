@@ -1,175 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link type="text/css" rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/3da1a747b2.js" crossorigin="anonymous"></script>
-    <title>Password Generator</title>
-  </head>
-  <body id="body">
-    <header>
-      <h1>Password Generator</h1>
-    </header>
-    <div class="container rounded">
-      <h2>Password Generator</h2>
-      <div class="result-container">
-        <span id="result"></span>
-        <button class="btn" id="clipboard">
-          <i class="far fa-clipboard"></i>
-        </button>
-      </div>
-      <div class="settings">
-        <div class="setting">
-          <label for="length">Password Length:</label>
-          <input type="number" id="length" min="8" max="128" value="15"/>
-        </div>
-      </div>
-      <div class="setting">
-        <label for="uppercase">Include uppercase letters:</label>
-        <input type="checkbox" id="uppercase" checked />
-      </div>
-      <div class="setting">
-        <label for="uppercase">Include lowercase letters:</label>
-        <input type="checkbox" id="lowercase" checked />
-      </div>
-      <div class="setting">
-        <label for="uppercase">Include numbers:</label>
-        <input type="checkbox" id="numbers" checked />
-      </div>
-      <div class="setting">
-        <label for="uppercase">Include symbols:</label>
-        <input type="checkbox" id="symbols" checked />
-      </div>
-      <button class="btn btn-large" id="generate">
-        Generate Password
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link type="text/css" rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css"
+    integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/3da1a747b2.js" crossorigin="anonymous"></script>
+  <title>Password Generator</title>
+</head>
+
+<body id="body">
+  <header>
+    <h1>Password Generator</h1>
+  </header>
+  <div class="container rounded">
+    <h2>Password Generator</h2>
+    <div class="result-container">
+      <span id="result"></span>
+      <button class="btn" id="clipboard">
+        <i class="far fa-clipboard"></i>
       </button>
     </div>
+    <div class="settings">
+      <div class="setting">
+        <label for="length">Password Length:</label>
+        <input type="number" id="length" min="8" max="128" value="15" />
+      </div>
+    </div>
+    <div class="setting">
+      <label for="uppercase">Include uppercase letters:</label>
+      <input type="checkbox" id="uppercase" checked />
+    </div>
+    <div class="setting">
+      <label for="uppercase">Include lowercase letters:</label>
+      <input type="checkbox" id="lowercase" checked />
+    </div>
+    <div class="setting">
+      <label for="uppercase">Include numbers:</label>
+      <input type="checkbox" id="numbers" checked />
+    </div>
+    <div class="setting">
+      <label for="uppercase">Include symbols:</label>
+      <input type="checkbox" id="symbols" checked />
+    </div>
+    <button class="btn btn-large" id="generate">
+      Generate Password
+    </button>
+  </div>
 
-        <!--Start Scripting-->
-        <script>
+  <script src="script.js"></script>
+  </script>
+</body>
 
-          /*const capitalLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-          const lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-          const specialCharacters = ["!", "#", "$", "%", "&", "(" , ")", "*", "+", "-", ",", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "{", "|", "}", "~"];
-          const numbers = ["1"]
-          let password = [];
-
-          let characterCount = prompt("How many characters do you want your password to be?(please choose a number between 8 and 128)");
-            
-            if (characterCount < 8 || characterCount > 128){
-                alert("please choose a number between 8 and 128");
-            }
-            else if(characterCount > 7 && characterCount < 129){
-                var characterSymbol = confirm("Do you want to include special characters?");
-                var characterNumber = confirm("Do you want to include numbers in your password?");
-                var characterCapital = confirm("Do you want to include capital letters in your passwrod?");
-                var characters = parseInt(characterCount);
-            }
-            else{
-                alert("Please choose only numbers.");
-            }
-            
-            for(i = 0; i < characters; i++){
-              
-            }
-            console.log(characters);*/
-
-            // DOM elements
-              const resultEl = document.getElementById("result");
-              const lengthEl = document.getElementById("length");
-              const uppercaseEl = document.getElementById("uppercase");
-              const lowercaseEl = document.getElementById("lowercase");
-              const numbersEl = document.getElementById("numbers");
-              const symbolsEl = document.getElementById("symbols");
-              const generateEl = document.getElementById("generate");
-              const clipboardEl = document.getElementById("clipboard");
-
-            const randomFunc = {
-              lower: getRandomLower,
-              upper: getRandomUpper,
-              number: getRandomNumber,
-              symbol: getRandomSymbol
-            };
-
-            // copy to clipboard function
-            clipboardEl.addEventListener('click', () =>{
-              const textarea = document.createElement('textarea');
-              const password = resultEl.innerText;
-
-              if(!password){
-                return;
-              }
-
-                textarea.value = password;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                textarea.remove();
-                alert("Password has been copied");
-            });
-
-            //event listeners for checkboxes and value input
-            generateEl.addEventListener("click", () => {
-              const length = +lengthEl.value;
-              const hasLower = lowercaseEl.checked;
-              const hasUpper = uppercaseEl.checked;
-              const hasNumber = numbersEl.checked;
-              const hasSymbol = symbolsEl.checked;
-              //adding the generate password to the innertext element 
-              resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
-            });
-
-            //Generate Password function
-            function generatePassword(lower, upper, number, symbol, length){
-
-              let generatedPassword = "";
-
-              const typesCount = lower + upper + number + symbol;
-
-              //console.log("typesCount:", typesCount);
-
-              const typesArr =[{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);
-
-              //console.log(typesArr);
-              if(typesCount === 0){
-                return "";
-              }
-              for(let i = 0; i < length; i += typesCount){
-
-                typesArr.forEach(type => {
-                  const funcName = Object.keys(type)[0];
-                    //console.log(funcName);
-                  generatedPassword += randomFunc[funcName]();
-
-                });
-              }
-                const finalPassword = generatedPassword.slice(0, length);
-                return finalPassword;
-            }
-
-
-            // Generator Functions from charcode ASCII
-            function getRandomLower(){
-              return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-            }
-
-            function getRandomUpper(){
-              return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-            }
-
-            function getRandomNumber(){
-              return Math.floor(Math.random() * 10);
-            }
-            function getRandomSymbol(){
-              const symbols = "!@#$%^&*()+=?><{}|~";
-              return symbols[Math.floor(Math.random() * symbols.length)];
-            }
-
-            
-        </script>
-
-  </body>
 </html>
